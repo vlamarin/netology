@@ -3,7 +3,7 @@ import json
 def create_common_list_without_comma(initial_list):
     all_news_list = []
     for item in initial_list:
-        news_list = item['description'].split(' ')
+        news_list = item['description'].lower().split(' ')
         for el in news_list:
             if ',' in el:
                 el.replace(',', '')
@@ -40,7 +40,7 @@ def create_common_list_without_comma_xml(initial_list):
     descriptions = []
     for item in initial_list:
         description = item.find('description')
-        descriptions += description.text.split(' ')
+        descriptions += description.text.lower().split(' ')
     for el in descriptions:
         if ',' in el:
             el.replace(',', '')
